@@ -10,3 +10,4 @@ if(isset($_POST['add'])){
     $mysqli-> query("INSERT INTO todolist (todolist, time) VALUES ('$todolist', '$time')") or
     die ($mysqli->error);
 }
+

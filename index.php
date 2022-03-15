@@ -9,11 +9,10 @@
     <title>TodoList</title>
 </head>
 <body>
-
-<?php include_once 'crud.php'?>
+<?php  include_once 'readData.php'; ?>
     <form action="" method="post">
          <input type="text" name='todolist'>
-         <input type="time" name='time'  >
+         <input type="date" name='time'  >
          <input type="submit" name='add' >
      </form>
 
