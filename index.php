@@ -9,10 +9,12 @@
     <title>TodoList</title>
 </head>
 <body>
-     <form>
-         <input type="text" value="Name of your list" >
-         <input type="time" value="time" >
-         <input type="submit" value="Add"  >
+
+<?php include_once 'crud.php'?>
+    <form action="" method="post">
+         <input type="text" name='todolist'>
+         <input type="time" name='time'  >
+         <input type="submit" name='add' >
      </form>
 
 </body>
