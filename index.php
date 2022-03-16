@@ -9,12 +9,15 @@
     <title>TodoList</title>
 </head>
 <body>
-<?php  include_once 'readData.php'; ?>
-    <form action="" method="post">
-         <input type="text" name='todolist'>
-         <input type="date" name='time'  >
-         <input type="submit" name='add' >
+  <h1>Todolist </h1>
+      <form action="" method="post">
+          <input type="hidden" type="number" name='id'><br>
+         <input type="text" name='todolist'><br>
+         <input type="date" name='time'  ><br/>
+        <textarea type="text" name='note'> </textarea><br/>
+         <input type="submit" name='add' spellcheck="true"><br/>
      </form>
+    <?php  include_once 'readData.php'; ?>
 
 </body>
 </html>
