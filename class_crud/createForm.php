@@ -21,7 +21,7 @@
         <input type="text" name='todolist' value="<?= $_GET['todolist'] ?? null ?>"><br>
         <label  class="form-label">Description Note</label></br>
         <textarea type="text" name='note'><?= $_GET['note'] ?? null ?></textarea><br/>
-        <input type="submit" name='add'  id="submit"><br/>
+        <input type="submit" name='add'  id="submit" value="<?= isset($_GET['id']) ? 'Edit': 'Submit' ?>"><br/>
     </fieldset>
 </form>
 
