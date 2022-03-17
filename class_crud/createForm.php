@@ -11,15 +11,16 @@
 </head>
 <body>
 <form action="index.php" method="get">
-    <input type="hidden" name="action" value="create">
+    <input type="hidden" name="action" value="<?= $_GET['action'] ?? 'create' ?>">
+    <input type="hidden"  name="id" value="<?= $_GET['id'] ?? null ?>">
     <fieldset >
-        <legend>Fill in your list here</legend>
+        <legend>Add Your ToDoList</legend>
         <label class="form-label">Date</label></br>
-        <input type="date" name='time'> <br/>
+        <input type="date" name='time' value="<?= $_GET['time'] ?? null ?>"> <br/>
         <label  class="form-label">Name of list</label></br>
-        <input type="text" name='todolist' ><br>
+        <input type="text" name='todolist' value="<?= $_GET['todolist'] ?? null ?>"><br>
         <label  class="form-label">Description Note</label></br>
-        <textarea type="text" name='note'> </textarea><br/>
+        <textarea type="text" name='note'><?= $_GET['note'] ?? null ?></textarea><br/>
         <input type="submit" name='add'  id="submit"><br/>
     </fieldset>
 </form>

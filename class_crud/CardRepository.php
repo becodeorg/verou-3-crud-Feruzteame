@@ -25,9 +25,12 @@ class CardRepository
      }
 
     // Get one
-    public function find(): array
+    public function find(int $list_id): array
     {
-
+        $dbh = $this->databaseManager->connection;
+        $stmt = $dbh->prepare("SELECT * FROM todolist WHERE id=? LIMIT 1");
+        $stmt->execute([$list_id]);
+        return $stmt->fetch();
     }
 
     // Get all
@@ -47,9 +50,18 @@ class CardRepository
 
 
 
-    public function update(): void
+    public function update($id, $time, $todolist, $note): void
     {
+        $data = [
+            'id' => $id,
+            'time' => $time,
+            'todolist' => $todolist,
+            'note' => $note,
+        ];
 
+        $pdo = $this->databaseManager->connection;
+        $sql = "UPDATE todolist SET time=:time, todolist=:todolist, note=:note WHERE id=:id";
+        $pdo->prepare($sql)->execute($data);
     }
 
     public function delete($id): void

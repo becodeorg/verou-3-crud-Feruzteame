@@ -1,43 +1,51 @@
 body{
     font-family: "Andale Mono";
 }
-
 input{
     width: 40%;
     height: 40px;
     margin: 0 0 30px 20%;
-
+    border: black 2px solid;
+    border-radius: 5px;
 }
 label{
     margin-left: 20%;
-    color:lightskyblue;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
 }
 textarea{
     width: 40%;
     height: 100px;
     margin: 0 0 30px 20%;
+    border: black 2px solid;
+    border-radius: 5px;
+
 }
 legend{
     margin-left: 20%;
     font-weight: bold;
     font-size: 20px;
-    color:lightskyblue;
+    background: lightskyblue;
+    padding: 2%;
+    color: black;
+    border-radius: 5px;
 }
 fieldset{
     width: 60%;
     margin-left: 15%;
     padding-top: 2%;
+    border: lightskyblue solid 5px;
+    /*box-shadow:10px 10px 30px 20px lightskyblue inset;*/
+    border-radius: 10px;
 }
 form{
     margin-top: 5%;
 }
 #submit{
-   background: #04AA6D;
+   background: lightskyblue;
     border-radius: 5px;
-    border: #04AA6D solid 2px;
-    color: white;
+    border: lightskyblue solid 2px;
+    color: black;
 }
 #delete{
     background: #B8405E;
@@ -58,12 +66,13 @@ a{
     text-decoration: none;
 }
 #create{
-    background: #04AA6D;
+    background: lightskyblue;
     border-radius: 5px;
-    border: #04AA6D solid 2px;
+    border: lightskyblue solid 2px;
     color: white;
     width: 20%;
 }
+
 #table {
     width: 80%;
     margin: 2% 0 0 10%;
@@ -79,6 +88,7 @@ a{
 
 #table tr:hover {
     background-color: #04AA6D;
+    color: white;
 }
 
 #table tr th{
@@ -87,5 +97,11 @@ a{
     font-weight: bold;
     font-size: 20px;
 }
+
+.d-block{
+    display: block;
+
+}
+
 
 

@@ -12,12 +12,13 @@
 <body>
 
 <div id="heading">
-    <h1>My Todolist</h1>
-    <button  id="create"><a href="./createData.php">Create</a></button>
+    <h1>ToDoList</h1>
+    <button id="create">
+        <a class="d-block" href="createForm.php">Add List</a>
+    </button>
 </div>
 
-
-        <table id="table"  class="table">
+   <table id="table"  class="table">
             <tr>
                 <th>date</th>
                 <th>list</th>
@@ -30,13 +31,11 @@
                 <td><?= $card['time'] ?></td>
                 <td><?= $card['todolist'] ?></td>
                 <td><?= $card['note'] ?></td>
-                <td id="edit"><a href="./">Edit</a></td>
                 <td>
-                    <form action="index.php" method="get">
-                        <input type="hidden" name="action" value="delete">
-                        <input type="hidden" name="id" value="<?= $card['id'] ?>">
-                        <button id="delete" type="submit">Delete</button>
-                    </form>
+                    <a href="index.php?action=edit&id=<?= $card['id'] ?>">Edit</a>
+                </td>
+                <td>
+                    <a href="index.php?action=delete&id=<?= $card['id'] ?>">Delete</a>
                 </td>
             </tr>
 

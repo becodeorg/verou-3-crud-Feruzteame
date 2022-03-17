@@ -29,12 +29,19 @@ $action = $_GET['action'] ?? null;
 
 // Load the relevant action
 // This system will help you to only execute the code you want, instead of all of it (or complex if statements)
+
 switch ($action) {
     case 'create':
        create($cardRepository);
         break;
     case 'delete':
         deleteById($cardRepository);
+        break;
+    case 'edit':
+        editForm($cardRepository);
+        break;
+    case 'update':
+        update($cardRepository);
         break;
     default:
         overview($cards);
@@ -57,10 +64,31 @@ function create(CardRepository $cardRepository)
          exit();
     }
 }
-
 function deleteById (CardRepository $cardRepository){
     if(isset($_GET['id']) && isset($_GET['action'])) {
         $cardRepository->delete((int)($_GET['id']));
+        header("Location: index.php");
+        exit();
+    }
+}
+function editForm(CardRepository $cardRepository){
+
+    if(isset($_GET['id'])) {
+        $list = $cardRepository->find((int)$_GET['id']);
+        $id = $list['id'];
+        $time = $list['time'];
+        $todo_list = $list['todolist'];
+        $note = $list['note'];
+        header("Location: createForm.php?time=$time&todolist=$todo_list&note=$note&action=update&id=$id");
+        exit();
+    }
+}
+
+
+function update(CardRepository $cardRepository)
+{
+    if(isset($_GET['time']) && isset($_GET['todolist']) && isset($_GET['note']) ) {
+        $cardRepository->update($_GET['id'], $_GET['time'], $_GET['todolist'],$_GET['note']);
         header("Location: index.php");
         exit();
     }
