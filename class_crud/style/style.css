@@ -39,6 +39,12 @@ form{
     border: #04AA6D solid 2px;
     color: white;
 }
+#delete{
+    background: #B8405E;
+    border-radius: 5px;
+    border: #B8405E solid 2px;
+    color: white;
+}
 #heading{
     display: flex;
     margin: 5%  10% 0 10%;

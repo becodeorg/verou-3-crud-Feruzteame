@@ -41,24 +41,24 @@ class CardRepository
         $sendQuery->execute();
         // TODO: replace dummy data by real one
         return $sendQuery->fetchAll(PDO::FETCH_ASSOC);
-
-        return [
-            ['name' => 'dummy one'],
-            ['name' => 'dummy two'],
-        ];
-
         // We get the database connection first, so we can apply our queries with it
         // return $this->databaseManager->connection-> (runYourQueryHere)
     }
+
+
 
     public function update(): void
     {
 
     }
 
-    public function delete(): void
+    public function delete($id): void
     {
-
+        $find = "DELETE FROM todolist WHERE id=:id";
+        $sendQuery = $this->databaseManager->connection->prepare($find);
+        $sendQuery->execute([
+            ':id' => $id
+        ]);
     }
 
 }

@@ -31,7 +31,13 @@
                 <td><?= $card['todolist'] ?></td>
                 <td><?= $card['note'] ?></td>
                 <td id="edit"><a href="./">Edit</a></td>
-                <td id="delete"><a href="./">Delete</a></td>
+                <td>
+                    <form action="index.php" method="get">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="id" value="<?= $card['id'] ?>">
+                        <button id="delete" type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
 
             <?php endforeach; ?>

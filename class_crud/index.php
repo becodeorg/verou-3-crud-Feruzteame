@@ -14,6 +14,7 @@ require_once 'DatabaseManager.php';
 require_once 'CardRepository.php';
 
 $databaseManager = new DatabaseManager($config['host'], $config['user'], $config['password'], $config['dbname']);
+
 $databaseManager->connect();
 
 // This example is about a Pokémon card collection
@@ -29,10 +30,12 @@ $action = $_GET['action'] ?? null;
 // Load the relevant action
 // This system will help you to only execute the code you want, instead of all of it (or complex if statements)
 switch ($action) {
-    case 'createData':
+    case 'create':
        create($cardRepository);
         break;
-
+    case 'delete':
+        deleteById($cardRepository);
+        break;
     default:
         overview($cards);
         break;
@@ -46,14 +49,19 @@ function overview($cards)
     require 'overview.php';
 }
 
-function create($cardRepository)
+function create(CardRepository $cardRepository)
 {
     if(isset($_GET['time']) && isset($_GET['todolist']) && isset($_GET['note']) ) {
         $cardRepository->create($_GET['time'], $_GET['todolist'],$_GET['note']);
-        echo "your list successfully created";
-        return;
+        header("Location: index.php");
+         exit();
     }
+}
 
-    require 'createData.php';
-
+function deleteById (CardRepository $cardRepository){
+    if(isset($_GET['id']) && isset($_GET['action'])) {
+        $cardRepository->delete((int)($_GET['id']));
+        header("Location: index.php");
+        exit();
+    }
 }

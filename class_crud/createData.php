@@ -11,6 +11,7 @@
 </head>
 <body>
 <form action="index.php" method="get">
+    <input type="hidden" name="action" value="create">
     <fieldset >
         <legend>Fill in your list here</legend>
         <label class="form-label">Date</label></br>
