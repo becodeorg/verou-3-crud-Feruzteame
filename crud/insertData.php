@@ -2,7 +2,6 @@
 $mysqli = new mysqli('localhost', 'root', 'root', 'crud') or
 die(mysqli_error($mysqli));
 if(isset($_POST['add'])){
-    $id = $_POST['id'];
     $todolist = $_POST['todolist'];
     $time = $_POST['time'];
     $note = $_POST['note'];

@@ -6,3 +6,5 @@
 3. make connection of database
 4. create element via form and insert to database
 5. read data from database
+6. delete
+7. edit
